@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; }
+    a { color: #C6401D; text-decoration: none; }
+    a:hover { color: #9E3116; }
+    * { box-sizing: border-box; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 900px; background: #F5F3EE; color: #14120E; display: flex; flex-direction: column; overflow: hidden;">
+
+  <!-- Header -->
+  <div style="border-bottom: 2px solid #14120E; display: flex; align-items: stretch; height: 60px; flex-shrink: 0;">
+    <div style="width: 300px; border-right: 1px solid #14120E; display: flex; align-items: center; gap: 10px; padding: 0 20px;">
+      <div style="width: 16px; height: 16px; border: 2px solid #14120E; transform: rotate(45deg);"></div>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: -0.02em;">DOMAINDRIVENREST</span>
+    </div>
+    <div style="flex-grow: 1; display: flex; align-items: center; padding: 0 20px; gap: 20px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6B6455;">LOCAL :5289</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6B6455;">8 ENDPOINTS</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6B6455;">11 TYPES</span>
+      <span style="flex-grow: 1;"></span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; border: 1px solid #14120E; padding: 4px 10px;">⌘K SEARCH</span>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1; display: flex; min-height: 0;">
+
+    <!-- Index -->
+    <div style="width: 300px; flex-shrink: 0; border-right: 1px solid #14120E; display: flex; flex-direction: column;">
+      <div style="padding: 18px 20px 12px; border-bottom: 1px solid #D6D0C2;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.15em; color: #6B6455;">INDEX / ORDERS</span>
+      </div>
+      <div style="flex-grow: 1; display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 11px 20px; border-bottom: 1px solid #E3DED2;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: #6B6455; width: 44px;">GET</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">/api/orders</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 11px 20px; border-bottom: 1px solid #E3DED2;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: #6B6455; width: 44px;">GET</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">/api/orders/{id}</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 11px 20px; border-bottom: 1px solid #E3DED2; background: #14120E;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700; color: #F5F3EE; width: 44px;">POST</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #F5F3EE;">/api/orders</span>
+          <span style="flex-grow: 1;"></span>
+          <span style="width: 6px; height: 6px; background: #E85D2F;"></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 11px 20px; border-bottom: 1px solid #E3DED2;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: #6B6455; width: 44px;">PUT</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">/api/orders/{id}</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 11px 20px; border-bottom: 1px solid #E3DED2;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: #6B6455; width: 44px;">DEL</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;">/api/orders/{id}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Composer -->
+    <div style="width: 560px; flex-shrink: 0; border-right: 1px solid #14120E; display: flex; flex-direction: column;">
+      <div style="padding: 26px 28px 20px; border-bottom: 1px solid #14120E;">
+        <div style="display: flex; align-items: baseline; gap: 12px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 700; color: #F5F3EE; background: #E85D2F; padding: 4px 10px;">POST</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 500; letter-spacing: -0.03em;">/api/orders</span>
+        </div>
+        <div style="margin-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #6B6455;">BODY → CreateOrderRequest · 6 FIELDS</div>
+      </div>
+
+      <div style="flex-grow: 1; padding: 0; display: flex; flex-direction: column;">
+
+        <div style="display: flex; border-bottom: 1px solid #E3DED2;">
+          <div style="width: 150px; flex-shrink: 0; padding: 14px 0 14px 28px; border-right: 1px solid #E3DED2;">
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 600;">customerName</div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #E85D2F; margin-top: 3px;">REQUIRED</div>
+          </div>
+          <div style="flex-grow: 1; padding: 14px 28px; display: flex; align-items: center;">
+            <span style="font-size: 15px; border-bottom: 2px solid #14120E; padding-bottom: 2px;">Grace Hopper</span>
+          </div>
+        </div>
+
+        <div style="display: flex; border-bottom: 1px solid #E3DED2;">
+          <div style="width: 150px; flex-shrink: 0; padding: 14px 0 14px 28px; border-right: 1px solid #E3DED2;">
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 600;">status</div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6B6455; margin-top: 3px;">OrderStatus</div>
+          </div>
+          <div style="flex-grow: 1; padding: 12px 28px; display: flex; align-items: center; gap: 0;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 6px 14px; border: 1px solid #C4BEB0; color: #6B6455;">Draft</span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 6px 14px; border: 1px solid #14120E; background: #14120E; color: #F5F3EE;">Placed</span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 6px 14px; border: 1px solid #C4BEB0; color: #6B6455;">Shipped</span>
+          </div>
+        </div>
+
+        <div style="display: flex; border-bottom: 1px solid #E3DED2;">
+          <div style="width: 150px; flex-shrink: 0; padding: 14px 0 14px 28px; border-right: 1px solid #E3DED2;">
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 600;">shippingSpeed</div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6B6455; margin-top: 3px;">str enum</div>
+          </div>
+          <div style="flex-grow: 1; padding: 12px 28px; display: flex; align-items: center;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 6px 14px; border: 1px solid #C4BEB0; color: #6B6455;">Standard</span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 6px 14px; border: 1px solid #C4BEB0; color: #6B6455;">Express</span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 6px 14px; border: 1px solid #E85D2F; background: #E85D2F; color: #F5F3EE;">Overnight</span>
+          </div>
+        </div>
+
+        <div style="display: flex; border-bottom: 1px solid #E3DED2;">
+          <div style="width: 150px; flex-shrink: 0; padding: 14px 0 14px 28px; border-right: 1px solid #E3DED2;">
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 600;">shippingAddress</div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6B6455; margin-top: 3px;">Address</div>
+          </div>
+          <div style="flex-grow: 1; padding: 14px 28px; display: flex; flex-direction: column; gap: 9px;">
+            <div style="display: flex; align-items: baseline; gap: 12px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #6B6455; width: 74px;">street</span>
+              <span style="font-size: 14px; border-bottom: 1px solid #14120E; flex-grow: 1;">1 Compiler Ave</span>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 12px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #6B6455; width: 74px;">city</span>
+              <span style="font-size: 14px; border-bottom: 1px solid #14120E; flex-grow: 1;">Arlington</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex-grow: 1;"></div>
+
+        <div style="border-top: 2px solid #14120E; padding: 16px 28px; display: flex; align-items: center; gap: 14px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 700; color: #F5F3EE; background: #14120E; padding: 11px 26px;">SEND ⌘⏎</div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 600;">VALID</span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #6B6455;">matches CreateOrderRequest</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JSON + response -->
+    <div style="flex-grow: 1; display: flex; flex-direction: column; min-width: 0; background: #EEEBE3;">
+      <div style="padding: 14px 24px; border-bottom: 1px solid #14120E; display: flex; align-items: center; gap: 12px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.15em;">JSON</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #6B6455;">LIVE-SYNCED</span>
+      </div>
+
+      <div style="padding: 18px 24px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.85; border-bottom: 1px solid #14120E;">
+        <div>{</div>
+        <div>&nbsp;&nbsp;<span style="color: #6B6455;">"customerName"</span>: <span style="color: #C6401D;">"Grace Hopper"</span>,</div>
+        <div>&nbsp;&nbsp;<span style="color: #6B6455;">"status"</span>: <span style="color: #1D6E5F;">1</span>,</div>
+        <div>&nbsp;&nbsp;<span style="color: #6B6455;">"shippingSpeed"</span>: <span style="color: #C6401D;">"Overnight"</span>,</div>
+        <div>&nbsp;&nbsp;<span style="color: #6B6455;">"shippingAddress"</span>: {</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #6B6455;">"street"</span>: <span style="color: #C6401D;">"1 Compiler Ave"</span>,</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #6B6455;">"city"</span>: <span style="color: #C6401D;">"Arlington"</span></div>
+        <div>&nbsp;&nbsp;}</div>
+        <div>}</div>
+      </div>
+
+      <div style="padding: 14px 24px; border-bottom: 1px solid #D6D0C2; display: flex; align-items: center; gap: 12px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.15em;">RESPONSE</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 700; color: #F5F3EE; background: #1D6E5F; padding: 3px 8px;">201</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #6B6455;">107ms</span>
+      </div>
+
+      <div style="padding: 18px 24px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.85; color: #45402F;">
+        <div>{</div>
+        <div>&nbsp;&nbsp;<span style="color: #6B6455;">"id"</span>: <span style="color: #1D6E5F;">1042</span>,</div>
+        <div>&nbsp;&nbsp;<span style="color: #6B6455;">"placedAt"</span>: <span style="color: #C6401D;">"2026-09-09T11:04Z"</span></div>
+        <div>}</div>
+      </div>
+
+      <div style="flex-grow: 1;"></div>
+
+      <div style="border-top: 1px solid #14120E; padding: 12px 24px; display: flex; gap: 8px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; border: 1px solid #14120E; padding: 4px 9px;">cURL</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; border: 1px solid #C4BEB0; color: #6B6455; padding: 4px 9px;">C#</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; border: 1px solid #C4BEB0; color: #6B6455; padding: 4px 9px;">TS</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

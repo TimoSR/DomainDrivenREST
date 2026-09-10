@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/samples/">
+    <Project Path="samples/DemoApi/DemoApi.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/DomainDrivenRest.Abstractions/DomainDrivenRest.Abstractions.csproj" />
+    <Project Path="src/DomainDrivenRest.AspNetCore/DomainDrivenRest.AspNetCore.csproj" />
+    <Project Path="src/DomainDrivenRest.SchemaGen/DomainDrivenRest.SchemaGen.csproj" />
+    <Project Path="src/DomainDrivenRest.SystemTextJson/DomainDrivenRest.SystemTextJson.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/DomainDrivenRest.AspNetCore.Tests/DomainDrivenRest.AspNetCore.Tests.csproj" />
+    <Project Path="tests/DomainDrivenRest.SchemaGen.Tests/DomainDrivenRest.SchemaGen.Tests.csproj" />
+  </Folder>
+</Solution>

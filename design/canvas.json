@@ -1,0 +1,33 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "title": "Composer — the main screen", "x": 0, "y": 0, "w": 1440, "h": 900 },
+    { "file": "Explorer.dc.html", "title": "Domain explorer", "x": 1560, "y": 0, "w": 1440, "h": 900 },
+    { "file": "Palette.dc.html", "title": "Command palette", "x": 0, "y": 1060, "w": 1440, "h": 900 },
+    { "file": "System.dc.html", "title": "Design system", "x": 1560, "y": 1060, "w": 1440, "h": 1200 },
+    { "file": "DirectionB.dc.html", "title": "Alternate direction — Blueprint", "x": 0, "y": 2380, "w": 1440, "h": 900 }
+  ],
+  "annotations": [
+    {
+      "id": "direction-a",
+      "x": 0,
+      "y": -150,
+      "w": 620,
+      "text": "DIRECTION A — Aurora Console (leading)\nInstrument-panel feel: deep cool canvas, hairline depth, one luminous accent. Everything visible at once — no accordions, no modal 'Try it out'."
+    },
+    {
+      "id": "beyond-swagger",
+      "x": 1560,
+      "y": -150,
+      "w": 620,
+      "text": "The actual thesis: Swagger is route-centric, this is DOMAIN-centric. Pick an entity, see its shape, every route that touches it, and what it pulls in."
+    },
+    {
+      "id": "direction-b-note",
+      "x": 0,
+      "y": 2230,
+      "w": 620,
+      "text": "DIRECTION B — Blueprint\nSame product, opposite axis: warm paper, ink rules, one signal orange, zero glow. Reads as technical documentation rather than a cockpit. Slower, more authoritative; less 'futuristic'."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}

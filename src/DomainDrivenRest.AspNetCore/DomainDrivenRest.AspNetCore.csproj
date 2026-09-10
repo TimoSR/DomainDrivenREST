@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\DomainDrivenRest.Abstractions\DomainDrivenRest.Abstractions.csproj" />
+    <ProjectReference Include="..\DomainDrivenRest.SchemaGen\DomainDrivenRest.SchemaGen.csproj" />
+    <ProjectReference Include="..\DomainDrivenRest.SystemTextJson\DomainDrivenRest.SystemTextJson.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>DomainDrivenRest.AspNetCore</PackageId>
+    <Description>Swagger-style request builder UI and endpoint/type discovery middleware for ASP.NET Core.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <!--
+    Builds the React SPA (ui/) and embeds its output as manifest resources so consuming
+    projects get the UI with a plain PackageReference — no separate static-asset publish
+    step, no Node required on their machines. Skipped once wwwroot/dist already has output,
+    so ordinary `dotnet build` in this repo doesn't require Node either; pass
+    -p:ForceUiRebuild=true (or delete wwwroot/dist) to force a rebuild after UI changes.
+  -->
+  <Target Name="BuildUi" BeforeTargets="BeforeBuild"
+          Condition="!Exists('$(MSBuildThisFileDirectory)wwwroot/dist/index.html') Or '$(ForceUiRebuild)' == 'true'">
+    <Exec Command="npm ci" WorkingDirectory="$(MSBuildThisFileDirectory)../../ui" Condition="!Exists('$(MSBuildThisFileDirectory)../../ui/node_modules')" />
+    <Exec Command="npm run build" WorkingDirectory="$(MSBuildThisFileDirectory)../../ui" />
+    <ItemGroup>
+      <UiDistFiles Include="$(MSBuildThisFileDirectory)../../ui/dist/**/*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(UiDistFiles)" DestinationFolder="$(MSBuildThisFileDirectory)wwwroot/dist/%(RecursiveDir)" />
+  </Target>
+
+  <ItemGroup>
+    <!-- Default embedded-resource naming (RootNamespace + folder path as dots) yields
+         "DomainDrivenRest.AspNetCore.wwwroot.dist.<path>", which is exactly the base
+         namespace UseDomainDrivenRest() points its EmbeddedFileProvider at. -->
+    <EmbeddedResource Include="wwwroot/**/*.*" Exclude="wwwroot/**/*.map" />
+  </ItemGroup>
+
+</Project>
