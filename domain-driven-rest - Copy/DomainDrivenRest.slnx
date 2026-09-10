@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/samples/">
+    <Project Path="samples/DemoApi/DemoApi.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/DomainDrivenRest.Annotations/DomainDrivenRest.Annotations.csproj" />
+    <Project Path="src/DomainDrivenRest.AspNetCore/DomainDrivenRest.AspNetCore.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/DomainDrivenRest.Tests/DomainDrivenRest.Tests.csproj" />
+  </Folder>
+</Solution>

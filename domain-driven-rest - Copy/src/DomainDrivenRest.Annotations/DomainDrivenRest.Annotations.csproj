@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>DomainDrivenRest.Annotations</RootNamespace>
+    <PackageId>DomainDrivenRest.Annotations</PackageId>
+    <Description>Opt-in attributes consumers apply to their own DTOs (e.g. [SchemaHint]). Deliberately dependency-free so a domain model project can reference it without pulling in ASP.NET Core.</Description>
+  </PropertyGroup>
+
+</Project>

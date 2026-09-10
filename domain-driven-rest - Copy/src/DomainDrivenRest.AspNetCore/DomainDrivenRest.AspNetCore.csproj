@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>DomainDrivenRest</RootNamespace>
+    <PackageId>DomainDrivenRest.AspNetCore</PackageId>
+    <Description>Swagger-style request builder UI and endpoint/type discovery middleware for ASP.NET Core.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="..\DomainDrivenRest.Annotations\DomainDrivenRest.Annotations.csproj" />
+  </ItemGroup>
+
+  <!--
+    Tests live physically inside their feature slice (Features/<Slice>/Tests/**), per the
+    project's vertical-slice convention. They are compiled by the test project via linked
+    files and excluded here so the shipped package carries no test code and no xunit
+    dependency.
+  -->
+  <ItemGroup>
+    <Compile Remove="Features/**/Tests/**/*.cs" />
+    <None Include="Features/**/Tests/**/*.cs" />
+  </ItemGroup>
+
+  <!--
+    Builds the React SPA (ui/) and embeds its output as manifest resources so consuming
+    projects get the UI with a plain PackageReference — no separate static-asset publish
+    step, no Node required on their machines. Skipped once wwwroot/dist already has output,
+    so ordinary `dotnet build` in this repo doesn't require Node either; pass
+    -p:ForceUiRebuild=true (or delete wwwroot/dist) to force a rebuild after UI changes.
+  -->
+  <Target Name="BuildUi" BeforeTargets="BeforeBuild"
+          Condition="!Exists('$(MSBuildThisFileDirectory)wwwroot/dist/index.html') Or '$(ForceUiRebuild)' == 'true'">
+    <Exec Command="npm ci" WorkingDirectory="$(MSBuildThisFileDirectory)../../ui" Condition="!Exists('$(MSBuildThisFileDirectory)../../ui/node_modules')" />
+    <Exec Command="npm run build" WorkingDirectory="$(MSBuildThisFileDirectory)../../ui" />
+    <ItemGroup>
+      <UiDistFiles Include="$(MSBuildThisFileDirectory)../../ui/dist/**/*.*" />
+    </ItemGroup>
+    <RemoveDir Directories="$(MSBuildThisFileDirectory)wwwroot/dist" />
+    <Copy SourceFiles="@(UiDistFiles)" DestinationFolder="$(MSBuildThisFileDirectory)wwwroot/dist/%(RecursiveDir)" />
+    <!-- Discover assets after Vite writes them, including newly hashed chunks. -->
+    <ItemGroup>
+      <EmbeddedResource Remove="@(EmbeddedResource)" Condition="$([System.String]::Copy('%(Identity)').StartsWith('wwwroot'))" />
+      <EmbeddedResource Include="wwwroot/**/*.*" Exclude="wwwroot/**/*.map" />
+    </ItemGroup>
+  </Target>
+
+  <ItemGroup>
+    <!-- Default embedded-resource naming (RootNamespace + folder path as dots) yields
+         "DomainDrivenRest.wwwroot.dist.<path>", which is what EmbeddedUiLocation points at. -->
+    <EmbeddedResource Include="wwwroot/**/*.*" Exclude="wwwroot/**/*.map" />
+  </ItemGroup>
+
+</Project>
